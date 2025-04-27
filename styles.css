@@ -569,6 +569,9 @@ h2 {
     background-color: #1abc9c;
 }
 
+#Muon-info .lepton-symbol {
+    background-color: #FF9800;
+}
 .info-details {
     text-align: left;
 }

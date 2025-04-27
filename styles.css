@@ -875,12 +875,12 @@ footer {
 }
 
 /* Specific Particle Colors (Retained & Enhanced) */
-.particle-circle.quark.up { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-.particle-circle.quark.down { background: linear-gradient(135deg, #e056b8, #c0399f); }
-.particle-circle.quark.charm { background: linear-gradient(135deg, #3498db, #2980b9); } /* New color */
-.particle-circle.quark.strange { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
-.particle-circle.quark.top { background: linear-gradient(135deg, #1abc9c, #16a085); }
-.particle-circle.quark.bottom { background: linear-gradient(135deg, #f39c12, #e67e22); }
+.particle-circle.quark.up { background: linear-gradient(135deg, #4CAF50, #2E7D32); }
+.particle-circle.quark.down { background: linear-gradient(135deg, #F8BBD0, #EC407A); }
+.particle-circle.quark.charm { background: linear-gradient(135deg, #388E3C, #1B5E20); } /* New color */
+.particle-circle.quark.strange { background: linear-gradient(135deg, #CE93D8, #9C27B0); }
+.particle-circle.quark.top { background: linear-gradient(135deg, #2E7D32, #1B5E20); }
+.particle-circle.quark.bottom { background: linear-gradient(135deg, #AB47BC, #6A1B9A); }
 
 .particle-circle.lepton { background: linear-gradient(135deg, #3498db, #2980b9); }
 .particle-circle.lepton sup, .particle-circle.lepton sub { font-size: 0.6em; vertical-align: baseline; position: relative; top: -0.3em; }

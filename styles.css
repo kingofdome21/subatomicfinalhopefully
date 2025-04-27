@@ -107,6 +107,7 @@ h2 {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    position: relative; /* Needed for absolute positioning of library elements */
 }
 
 .back-btn {
@@ -195,11 +196,12 @@ h2 {
     position: absolute;
     width: 360px;
     height: 360px;
-    border: 2px solid #3498db;
+    border: 3px solid #3498db;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
 }
 
 .detail-particle {
@@ -222,12 +224,14 @@ h2 {
     left: 50%;
     transform-origin: 0 0;
     animation: detailOrbit 6s linear infinite;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+    z-index: 3;
 }
 
 .detail-particle[data-particle="nucleus"] {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     background-color: #e74c3c;
     border-radius: 50%;
     top: 50%;
@@ -235,17 +239,65 @@ h2 {
     transform: translate(-50%, -50%);
     z-index: 2;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding: 5px;
+}
+
+.nucleon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nucleon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .proton {
-    width: 40px;
-    height: 40px;
-    background-color: #c0392b;
-    border-radius: 50%;
+    background-color: #6b1a12; /* Darker red to match Construct 3 */
+    background-image: linear-gradient(45deg, #6b1a12, #8a2a22);
     position: relative;
-    z-index: 3;
+    overflow: hidden;
+}
+
+.proton::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+}
+
+.neutron {
+    background-color: #5a5a5a; /* Gray to match Construct 3 */
+    background-image: linear-gradient(45deg, #5a5a5a, #6e6e6e);
+    position: relative;
+    overflow: hidden;
+}
+
+.neutron::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
 }
 
 @keyframes detailOrbit {
@@ -257,7 +309,7 @@ h2 {
     }
 }
 
-/* Quark Model Styles */
+/* Quark Model Styles (Home Page) */
 .quark-model {
     display: flex;
     justify-content: center;
@@ -278,64 +330,160 @@ h2 {
 }
 
 .up {
-    background-color: #3498db;
+    background-color: #2ecc71; /* Bright green to match Construct 3 */
 }
 
 .down {
-    background-color: #e74c3c;
+    background-color: #e056b8; /* Pink/purple to match Construct 3 */
 }
 
-/* Quarks Detail Model Styles */
-.quarks-detail-model {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin: 30px auto;
-    max-width: 600px;
+/* Quark Structure Styles (Inside Proton/Neutron) */
+.quark-structure-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
 }
 
-.quark-detail {
-    width: 70px;
-    height: 70px;
+.quark-structure {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 15px auto;
+    border-radius: 50%;
+}
+
+.proton-structure {
+    background-color: #6b1a12; /* Darker red to match Construct 3 */
+    background-image: linear-gradient(45deg, #6b1a12, #8a2a22);
+    position: relative;
+    overflow: hidden;
+}
+
+.proton-structure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+}
+
+.neutron-structure {
+    background-color: #5a5a5a; /* Gray to match Construct 3 */
+    background-image: linear-gradient(45deg, #5a5a5a, #6e6e6e);
+    position: relative;
+    overflow: hidden;
+}
+
+.neutron-structure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+    pointer-events: none;
+}
+
+.quark-internal {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: black;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    position: absolute;
 }
 
-.quark-detail:hover {
+.quark-internal:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    z-index: 10;
 }
 
-.quark-detail.up {
-    background-color: #3498db;
+.quark-internal.up {
+    background-color: #2ecc71; /* Bright green to match Construct 3 */
 }
 
-.quark-detail.down {
-    background-color: #e74c3c;
+.quark-internal.down {
+    background-color: #e056b8; /* Pink/purple to match Construct 3 */
 }
 
-.quark-detail.strange {
-    background-color: #9b59b6;
+/* Position quarks inside proton/neutron */
+.proton-structure .quark-internal:nth-child(1) {
+    top: 30px;
+    left: 40px;
 }
 
-.quark-detail.charm {
-    background-color: #2ecc71;
+.proton-structure .quark-internal:nth-child(2) {
+    top: 30px;
+    right: 40px;
 }
 
-.quark-detail.bottom {
-    background-color: #f39c12;
+.proton-structure .quark-internal:nth-child(3) {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.quark-detail.top {
-    background-color: #1abc9c;
+.proton-structure .quark-internal:nth-child(3):hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.neutron-structure .quark-internal:nth-child(1) {
+    top: 30px;
+    left: 40px;
+}
+
+.neutron-structure .quark-internal:nth-child(2) {
+    top: 30px;
+    right: 40px;
+}
+
+.neutron-structure .quark-internal:nth-child(3) {
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.neutron-structure .quark-internal:nth-child(3):hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.quark-instruction {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.fundamental-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.fundamental-link:hover {
+    color: #3498db;
+    background-color: #e0e0e0;
 }
 
 /* Particle and Quark Info Styles */
@@ -377,6 +525,14 @@ h2 {
     background-color: #e74c3c;
 }
 
+#proton-info .particle-symbol {
+    background-color: #6b1a12; /* Darker red to match Construct 3 */
+}
+
+#neutron-info .particle-symbol {
+    background-color: #5a5a5a; /* Gray to match Construct 3 */
+}
+
 .quark-symbol {
     width: 70px;
     height: 70px;
@@ -387,11 +543,13 @@ h2 {
 }
 
 #up-info .quark-symbol {
-    background-color: #3498db;
+    background-color: #2ecc71; /* Bright green to match Construct 3 */
+    color: black;
 }
 
 #down-info .quark-symbol {
-    background-color: #e74c3c;
+    background-color: #e056b8; /* Pink/purple to match Construct 3 */
+    color: black;
 }
 
 #strange-info .quark-symbol {
@@ -400,6 +558,7 @@ h2 {
 
 #charm-info .quark-symbol {
     background-color: #2ecc71;
+    color: black;
 }
 
 #bottom-info .quark-symbol {
@@ -426,6 +585,115 @@ h2 {
 .info-details li {
     margin-bottom: 8px;
     line-height: 1.4;
+}
+
+.info-details h4 {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Quark Library Styles (#quarks-view) */
+#quarks-view {
+    /* background-image: url("images/library_background.png"); */ /* Removed background image */
+    background-color: #e8f5f0; /* Changed to match body background */
+    /* background-size: cover; */
+    /* background-position: center; */
+    padding: 20px;
+    border-radius: 10px;
+    color: #333; /* Changed text color for light background */
+    max-width: 800px; /* Adjust as needed */
+    margin: 20px auto;
+    border: 1px solid #c5e0d5; /* Added a light border */
+}
+
+.library-back-btn {
+    position: absolute;
+    top: 30px; /* Adjust positioning */
+    left: 30px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.library-back-btn img {
+    width: 100px; /* Adjust size */
+    height: auto;
+    transition: transform 0.2s;
+}
+
+.library-back-btn:hover img {
+    transform: scale(1.1);
+}
+
+.library-title {
+    text-align: right;
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-top: 10px; /* Space below button */
+    padding-right: 20px;
+    color: #333; /* Changed text color */
+}
+
+.library-description-top,
+.library-description-bottom {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px 0;
+    padding: 0 15px;
+    color: #555; /* Changed text color */
+}
+
+.library-layout-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px; /* Match image width */
+    margin: 30px auto;
+}
+
+.library-layout-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Style for the info boxes within the library */
+.library-item-info {
+    display: none; /* Hidden by default */
+    background-color: #f0f8f4; /* Light background for info boxes */
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #c5e0d5;
+}
+
+.library-item-info h3 {
+    color: #444;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.library-item-info .info-header {
+    margin-bottom: 20px;
+}
+
+.library-item-info .info-details {
+    font-size: 15px;
+}
+
+.library-item-info .info-details strong {
+    color: #555;
+}
+
+/* Hide the old quark model in the library view */
+#quarks-view .quarks-detail-model {
+    display: none;
+}
+
+#quarks-view .instruction-text {
+    display: none; /* Replaced by image map */
 }
 
 /* Footer Styles */
@@ -499,8 +767,35 @@ footer {
         }
     }
     
-    .quarks-detail-model {
-        max-width: 300px;
+    /* Library Responsive */
+    #quarks-view {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .library-back-btn {
+        top: 15px;
+        left: 15px;
+    }
+
+    .library-back-btn img {
+        width: 80px;
+    }
+
+    .library-title {
+        font-size: 22px;
+        text-align: center;
+        margin-top: 60px; /* Space below button */
+        padding-right: 0;
+    }
+
+    .library-description-top,
+    .library-description-bottom {
+        font-size: 14px;
+    }
+
+    .library-layout-container {
+        max-width: 100%;
     }
     
     footer {
@@ -512,3 +807,129 @@ footer {
         text-align: center;
     }
 }
+
+
+
+
+/* New Library Design Styles */
+.particle-library-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.particle-category {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.particle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 25px;
+}
+
+.particle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.particle-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.particle-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific Particle Colors (Retained & Enhanced) */
+.particle-circle.quark.up { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.particle-circle.quark.down { background: linear-gradient(135deg, #e056b8, #c0399f); }
+.particle-circle.quark.charm { background: linear-gradient(135deg, #3498db, #2980b9); } /* New color */
+.particle-circle.quark.strange { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+.particle-circle.quark.top { background: linear-gradient(135deg, #1abc9c, #16a085); }
+.particle-circle.quark.bottom { background: linear-gradient(135deg, #f39c12, #e67e22); }
+
+.particle-circle.lepton { background: linear-gradient(135deg, #3498db, #2980b9); }
+.particle-circle.lepton sup, .particle-circle.lepton sub { font-size: 0.6em; vertical-align: baseline; position: relative; top: -0.3em; }
+.particle-circle.lepton sub { top: 0.3em; }
+
+.particle-circle.boson { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.particle-circle.boson sup { font-size: 0.6em; vertical-align: baseline; position: relative; top: -0.3em; }
+
+.particle-name {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Adjustments for library info panels */
+.library-item-info {
+    background-color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.library-item-info h3 {
+    color: #333;
+}
+
+.library-item-info .info-details strong {
+    color: #444;
+}
+
+/* Responsive adjustments for new design */
+@media (max-width: 768px) {
+    .particle-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+    }
+    .particle-circle {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+    .particle-name {
+        font-size: 13px;
+    }
+    .particle-category {
+        padding: 20px;
+    }
+    .category-title {
+        font-size: 20px;
+    }
+}
+

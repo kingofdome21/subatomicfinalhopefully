@@ -569,9 +569,6 @@ h2 {
     background-color: #1abc9c;
 }
 
-#Muon-info .lepton-symbol {
-    background-color: #FF9800;
-}
 .info-details {
     text-align: left;
 }
@@ -885,19 +882,12 @@ footer {
 .particle-circle.quark.top { background: linear-gradient(135deg, #2E7D32, #1B5E20); }
 .particle-circle.quark.bottom { background: linear-gradient(135deg, #AB47BC, #6A1B9A); }
 
-.particle-circle.Electron { background: linear-gradient(135deg, #FDD835, #F57F17); }
-.particle-circle.Muon { background: linear-gradient(135deg, #FF9800, #E65100); }
-.particle-circle.Tau { background: linear-gradient(135deg, #F57C00, #BF360C); }
-.particle-circle.Electron Neutrino { background: linear-gradient(135deg, #26C6DA, #0097A7); }
-.particle-circle.Muon Neutrino { background: linear-gradient(135deg, #1E88E5, #0D47A1); }
-.particle-circle.Tau Neutrino { background: linear-gradient(135deg, #3949AB, #1A237E); }
+.particle-circle.lepton { background: linear-gradient(135deg, #3498db, #2980b9); }
+.particle-circle.lepton sup, .particle-circle.lepton sub { font-size: 0.6em; vertical-align: baseline; position: relative; top: -0.3em; }
+.particle-circle.lepton sub { top: 0.3em; }
 
-.particle-circle.Photon { background: linear-gradient(135deg, #E1BEE7, #80DEEA); }
-.particle-circle.Gluon { background: linear-gradient(135deg, #9C27B0, #4A148C); }
-.particle-circle.W Boson { background: linear-gradient(135deg, #F48FB1, #7B1FA2); }
-.particle-circle.Z Boson  { background: linear-gradient(135deg, #FFEB3B, #43A047); }
-.particle-circle.Higgs Boson { background: linear-gradient(135deg, #E0E0E0, #9E9E9E); }
-
+.particle-circle.boson { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.particle-circle.boson sup { font-size: 0.6em; vertical-align: baseline; position: relative; top: -0.3em; }
 
 .particle-name {
     font-size: 14px;
@@ -942,4 +932,3 @@ footer {
         font-size: 20px;
     }
 }
-

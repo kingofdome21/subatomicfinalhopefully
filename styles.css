@@ -565,6 +565,10 @@ h2 {
     background-color: #f39c12;
 }
 
+#electron-lepton-info .electron-symbol {
+    background-color: #f39c12;
+}
+
 #top-info .quark-symbol {
     background-color: #1abc9c;
 }
@@ -723,15 +727,8 @@ footer {
     color: #666;
 }
 
-.manus-badge {
-    margin-top: 5px;
-    background-color: #6a0dad;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    font-size: 12px;
-}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

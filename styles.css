@@ -565,7 +565,7 @@ h2 {
     background-color: #f39c12;
 }
 
-#electron-lepton-info .electron-symbol {
+#electron-lepton-info .electron-symbol { /*THIS CHANGES LEPTONS AND BOSONS DO NOT TOUCH*/
     background-color: #f39c12;
 }
 
@@ -882,12 +882,12 @@ footer {
 /*Leptons colors*/
 
 
-.particle-circle.lepton.electron-lepton { background: linear-gradient(135deg, #3498db, #2980b9);}
-.particle-circle.lepton.electron-neutrino-lepton { background: linear-gradient(135deg, #7fb3d5, #5499c7);}
-.particle-circle.lepton.muon-lepton {  background: linear-gradient(135deg, #50e3c2, #3abfa8);}
-.particle-circle.lepton.muon-neutrino-lepton {  background: linear-gradient(135deg, #76d7c4, #48c9b0);}
-.particle-circle.lepton.tau-lepton { background: linear-gradient(135deg, #f5a623, #d4881d);}
-.particle-circle.lepton.tau-neutrino-lepton {  background: linear-gradient(135deg, #f9e79f, #d7b740);}
+.particle-circle.lepton.electron-lepton { background: linear-gradient(135deg, #f7d86a, #f7b24a); }
+.particle-circle.lepton.electron-neutrino-lepton { background: linear-gradient(135deg, #4ccdd4, #3a7dd6); }
+.particle-circle.lepton.muon-lepton { background: linear-gradient(135deg, #f7b24a, #f78c2a); }
+.particle-circle.lepton.muon-neutrino-lepton { background: linear-gradient(135deg, #3a7dd6, #4ccdd4); }
+.particle-circle.lepton.tau-lepton { background: linear-gradient(135deg, #f78c2a, #f7b24a); }
+.particle-circle.lepton.tau-neutrino-lepton { background: linear-gradient(135deg, #1c295c, #3a7dd6); }
 
 /* Lepton sup and sub styling (keep common for all leptons) */
 .particle-circle.lepton sup, 
@@ -902,11 +902,11 @@ footer {
 }
 
 /* Bosons individual colors */
-.particle-circle.boson.photon-boson { background: linear-gradient(135deg, #f8e71c, #d6c216);}
-.particle-circle.boson.w-boson { background: linear-gradient(135deg, #e74c3c, #c0392b);}
-.particle-circle.boson.z-boson {  background: linear-gradient(135deg, #9013fe, #6e0ed6);}
-.particle-circle.boson.gluon-boson {  background: linear-gradient(135deg, #7ed321, #5aa317);}
-.particle-circle.boson.higgs-boson {  background: linear-gradient(135deg, #b8e986, #8fc35a);}
+.particle-circle.boson.photon-boson { background: linear-gradient(135deg, #b5e8fa, #4ccdd4); }
+.particle-circle.boson.w-boson { background: linear-gradient(135deg, #b5b8fa, #b5e8fa); }
+.particle-circle.boson.z-boson { background: linear-gradient(135deg, #e9e563, #b5b8fa); }
+.particle-circle.boson.gluon-boson { background: linear-gradient(135deg, #46a49c, #b5e8fa); }
+.particle-circle.boson.higgs-boson { background: linear-gradient(135deg, #eaeaea, #b5b8fa); }
 
 
 /* Boson sup styling (keep common for all bosons) */

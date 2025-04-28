@@ -565,8 +565,8 @@ h2 {
     background-color: #f39c12;
 }
 
-#electron-lepton-info .electron-symbol { /*THIS CHANGES LEPTONS AND BOSONS DO NOT TOUCH*/
-    background-color: ##f3a412;
+#electron-lepton-info .electron-neutrino-lepton-symbol { /*THIS CHANGES LEPTONS AND BOSONS DO NOT TOUCH*/
+    background-color: #4ccdd4;
 }
 
 #top-info .quark-symbol {
